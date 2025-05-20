@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "3777fcaf-8d9f-4caa-9fbc-8507d2f0d822",
+		"name": "Event Management",
+		"description": "This Collection belongs to _Book My Day_ Project created for arranging an event for catering, decorations and more.\n\nPython Developer:\n\n\\- Uzaif Ahmed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45013877"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "asher",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "a1234567*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Local}}/login/",
+							"host": [
+								"{{Local}}"
+							],
+							"path": [
+								"login",
+								""
+							]
+						},
+						"description": "To Login by **username** and **password** keys."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 0183d3973911539cc648d490dfdf6b03265857e2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{Local}}/logout/",
+							"host": [
+								"{{Local}}"
+							],
+							"path": [
+								"logout",
+								""
+							]
+						},
+						"description": "To logout by having **Authorization** Token in the header."
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "qassim",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "923364797649",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "qassim@email.com",
+									"type": "text"
+								},
+								{
+									"key": "password1",
+									"value": "q1234567*",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "q1234567*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Local}}/register/",
+							"host": [
+								"{{Local}}"
+							],
+							"path": [
+								"register",
+								""
+							]
+						},
+						"description": "To register as a user by adding **username**, **mobile_number**, **email**, **password1**, **password2.**"
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "qassim",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "q1234567*",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Local}}/api-token-auth/",
+							"host": [
+								"{{Local}}"
+							],
+							"path": [
+								"api-token-auth",
+								""
+							]
+						},
+						"description": "To get token to run authorized APIs, using credentials."
+					},
+					"response": []
+				}
+			],
+			"description": "This partition is for Authentication/Credentials API"
+		},
+		{
+			"name": "Event Management",
+			"item": [
+				{
+					"name": "Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token d20c54eeaf078356640e4ef132d4313999808ce1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Birthday party\",\r\n    \"description\": \"Party to celebrate with friends and family\",\r\n    \"on_date\": \"2025-06-06\",\r\n    \"location\": \"karachi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local}}/booking/",
+							"host": [
+								"{{Local}}"
+							],
+							"path": [
+								"booking",
+								""
+							]
+						},
+						"description": "As a Authorized user, book any event using keys; **title**, **description**, **on_date**, **location**."
+					},
+					"response": []
+				},
+				{
+					"name": "Booking Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 0183d3973911539cc648d490dfdf6b03265857e2",
+								"description": "asher",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 8fc864bd0f76d4d2e0a16448cf2124479a0f07dd",
+								"description": "qassim",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//     \"location\": \"lahore\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local}}/booking/1/",
+							"host": [
+								"{{Local}}"
+							],
+							"path": [
+								"booking",
+								"1",
+								""
+							]
+						},
+						"description": "Check the event, simply by hitting the API."
+					},
+					"response": []
+				}
+			],
+			"description": "This partition is for Booking Events"
+		},
+		{
+			"name": "Event Attendance",
+			"item": [
+				{
+					"name": "Attend",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 8fc864bd0f76d4d2e0a16448cf2124479a0f07dd",
+								"description": "Qassim",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 9c6c28ebbbb182d386672747d0892d2935b10e61",
+								"description": "Asher",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "event",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Local}}/attend/",
+							"host": [
+								"{{Local}}"
+							],
+							"path": [
+								"attend",
+								""
+							]
+						},
+						"description": "Attend the event once, as a Authorized user."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Local",
+			"value": "127.0.0.1:8000/api",
+			"type": "string"
+		}
+	]
+}
