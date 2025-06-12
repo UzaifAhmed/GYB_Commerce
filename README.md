@@ -1,4 +1,4 @@
-# GYB_Commerce
+# Event_Management_System
 >This repository is only for assignment purpose.
 
 
